@@ -26,7 +26,7 @@ export function ProductsTab() {
     try {
       const res = await getProducts({ limit: 100, sortBy: 'createdAt', sortOrder: 'desc' })
       setProducts(res.data.data)
-      setTotal(res.data.total)
+      setTotal(res.data.meta.total)
     } catch {
       setError('No se pudieron cargar los productos.')
     } finally {
@@ -103,7 +103,7 @@ export function ProductsTab() {
               {products.map((p) => (
                 <tr key={p.id} data-testid="product-row">
                   <td>{p.name}</td>
-                  <td>${p.price.toFixed(2)}</td>
+                  <td>${Number(p.price).toFixed(2)}</td>
                   <td>
                     <span className={p.stock === 0 ? 'stock-badge stock-badge--out' : 'stock-badge'}>
                       {p.stock}

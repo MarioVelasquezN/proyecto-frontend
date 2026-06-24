@@ -46,7 +46,7 @@ export function useProducts(options: UseProductsOptions): UseProductsResult {
       .then((res) => {
         if (!cancelled) {
           setProducts(res.data.data)
-          setTotal(res.data.total)
+          setTotal(res.data.meta.total)
         }
       })
       .catch(() => {

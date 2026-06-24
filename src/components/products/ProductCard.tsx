@@ -41,7 +41,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
         <h3 className="product-card__name">{product.name}</h3>
 
-        <p className="product-card__price">${product.price.toFixed(2)}</p>
+        <p className="product-card__price">${Number(product.price).toFixed(2)}</p>
 
         <div className="product-card__footer">
           <span

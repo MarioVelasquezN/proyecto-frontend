@@ -103,9 +103,9 @@ export function OrdersTab() {
               {visible.map((order) => (
                 <tr key={order.id} data-testid="order-row">
                   <td className="order-id" title={order.id}>
-                    {order.id.slice(0, 8).toUpperCase()}
+                    {String(order.id).slice(0, 8).toUpperCase()}
                   </td>
-                  <td>${order.total.toFixed(2)}</td>
+                  <td>${Number(order.total).toFixed(2)}</td>
                   <td>
                     <span className={`status-badge status-badge--${order.status}`}>
                       {STATUS_LABELS[order.status]}
@@ -124,7 +124,7 @@ export function OrdersTab() {
                           onChange={(e) =>
                             handleStatusChange(order.id, e.target.value as OrderStatus)
                           }
-                          aria-label={`Estado de la orden ${order.id.slice(0, 8)}`}
+                          aria-label={`Estado de la orden ${String(order.id).slice(0, 8)}`}
                           className="order-status-select"
                         >
                           {ALL_STATUSES.map((s) => (

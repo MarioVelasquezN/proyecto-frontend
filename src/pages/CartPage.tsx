@@ -8,7 +8,7 @@ export function CartPage() {
 
   const subtotal =
     cart?.items.reduce(
-      (sum, item) => sum + item.product.price * item.quantity,
+      (sum, item) => sum + Number(item.product.price) * item.quantity,
       0,
     ) ?? 0
 
@@ -59,7 +59,7 @@ export function CartPage() {
 
         <div className="cart-items" role="list">
           {cart.items.map((item) => {
-            const lineTotal = item.product.price * item.quantity
+            const lineTotal = Number(item.product.price) * item.quantity
             const maxQty = item.product.stock
             return (
               <div
@@ -71,7 +71,7 @@ export function CartPage() {
                 <div className="cart-item__info">
                   <span className="cart-item__name">{item.product.name}</span>
                   <span className="cart-item__unit-price">
-                    ${item.product.price.toFixed(2)} c/u
+                    ${Number(item.product.price).toFixed(2)} c/u
                   </span>
                 </div>
 

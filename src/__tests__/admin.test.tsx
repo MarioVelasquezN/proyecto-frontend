@@ -77,7 +77,7 @@ const PAID_ORDER: Order = {
 }
 
 function makePaginated(data: Product[], total = data.length) {
-  return { data: { data, total, page: 1, limit: 100 } }
+  return { data: { data, meta: { total, page: 1, limit: 100, totalPages: Math.ceil(total / 100) } } }
 }
 
 // ── Render helpers ────────────────────────────────────────────────────────────

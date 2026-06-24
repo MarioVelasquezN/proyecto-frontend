@@ -5,6 +5,10 @@ export function getOrders(params?: { status?: OrderStatus }) {
   return api.get<Order[]>('/orders', { params })
 }
 
+export function getOrder(id: string) {
+  return api.get<Order>(`/orders/${id}`)
+}
+
 export function updateOrderStatus(id: string, status: OrderStatus) {
   return api.patch<Order>(`/orders/${id}/status`, { status })
 }

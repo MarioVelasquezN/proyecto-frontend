@@ -29,18 +29,37 @@ export interface Product {
 
 export interface PaginatedProducts {
   data: Product[]
-  total: number
-  page: number
-  limit: number
+  meta: {
+    total: number
+    page: number
+    limit: number
+    totalPages: number
+  }
 }
 
 export type OrderStatus = 'pending' | 'paid' | 'cancelled' | 'delivered'
+
+export interface OrderItem {
+  productId: string
+  quantity: number
+  price: number
+  product?: Pick<Product, 'id' | 'name'>
+}
 
 export interface Order {
   id: string
   status: OrderStatus
   total: number
   createdAt: string
+  items?: OrderItem[]
+}
+
+export interface Coupon {
+  id: string
+  code: string
+  discount: number
+  isActive: boolean
+  expiresAt: string | null
 }
 
 export interface CreateProductDto {

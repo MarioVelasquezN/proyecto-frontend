@@ -59,7 +59,7 @@ function makePaginatedResponse(
   total = data.length,
   page = 1,
 ) {
-  return { data: { data, total, page, limit: 12 } }
+  return { data: { data, meta: { total, page, limit: 12, totalPages: Math.ceil(total / 12) } } }
 }
 
 // ── Shared auth context stub ─────────────────────────────────────────────────

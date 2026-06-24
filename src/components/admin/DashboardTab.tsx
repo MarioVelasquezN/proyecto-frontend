@@ -38,7 +38,7 @@ export function DashboardTab() {
         const products = productsRes.data
         const orders = ordersRes.data
         setMetrics({
-          productCount: products.total,
+          productCount: products.meta.total,
           totalStock: products.data.reduce((sum, p) => sum + p.stock, 0),
           pendingOrders: orders.filter((o) => o.status === 'pending').length,
           totalOrders: orders.length,

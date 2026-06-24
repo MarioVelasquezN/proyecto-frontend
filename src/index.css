@@ -712,6 +712,37 @@ input:focus {
   white-space: nowrap;
 }
 
+/* ── Order detail (profile) ─────────────────────────────── */
+.order-detail-cell {
+  padding: 0 !important;
+  background: var(--color-surface);
+}
+
+.order-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.order-items-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.order-items-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.order-items-table tr:last-child td {
+  border-bottom: none;
+}
+
 /* ── Small action buttons ─────────────────────────────────── */
 .btn-sm {
   font-size: 0.8rem;

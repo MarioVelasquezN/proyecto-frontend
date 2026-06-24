@@ -5,14 +5,16 @@ import { DashboardTab } from '../components/admin/DashboardTab'
 import { ProductsTab } from '../components/admin/ProductsTab'
 import { CategoriesTab } from '../components/admin/CategoriesTab'
 import { OrdersTab } from '../components/admin/OrdersTab'
+import { CouponsTab } from '../components/admin/CouponsTab'
 
-type Tab = 'dashboard' | 'products' | 'categories' | 'orders'
+type Tab = 'dashboard' | 'products' | 'categories' | 'orders' | 'coupons'
 
 const TABS: Array<{ id: Tab; label: string }> = [
   { id: 'dashboard', label: 'Dashboard' },
   { id: 'products', label: 'Productos' },
   { id: 'categories', label: 'Categorías' },
   { id: 'orders', label: 'Órdenes' },
+  { id: 'coupons', label: 'Cupones' },
 ]
 
 export function AdminPage() {
@@ -48,6 +50,7 @@ export function AdminPage() {
           {activeTab === 'products' && <ProductsTab />}
           {activeTab === 'categories' && <CategoriesTab />}
           {activeTab === 'orders' && <OrdersTab />}
+          {activeTab === 'coupons' && <CouponsTab />}
         </div>
       </div>
     </Layout>

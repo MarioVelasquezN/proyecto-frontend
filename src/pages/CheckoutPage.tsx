@@ -14,7 +14,7 @@ export function CheckoutPage() {
 
   const subtotal =
     cart?.items.reduce(
-      (sum, item) => sum + item.product.price * item.quantity,
+      (sum, item) => sum + Number(item.product.price) * item.quantity,
       0,
     ) ?? 0
 
@@ -48,11 +48,11 @@ export function CheckoutPage() {
           <div className="checkout-success__icon" aria-hidden="true">✓</div>
           <h1>¡Pedido confirmado!</h1>
           <p className="checkout-success__id">
-            Orden #{order.id.slice(0, 8).toUpperCase()}
+            Orden #{String(order.id).slice(0, 8).toUpperCase()}
           </p>
           <p className="checkout-success__total">
             Total cobrado:{' '}
-            <strong>${order.total.toFixed(2)}</strong>
+            <strong>${Number(order.total).toFixed(2)}</strong>
           </p>
           <div className="checkout-success__actions">
             <button className="btn-primary" onClick={() => navigate('/products')}>
@@ -93,7 +93,7 @@ export function CheckoutPage() {
                   <span className="checkout-item__qty"> × {item.quantity}</span>
                 </span>
                 <span className="checkout-item__price">
-                  ${(item.product.price * item.quantity).toFixed(2)}
+                  ${(Number(item.product.price) * item.quantity).toFixed(2)}
                 </span>
               </li>
             ))}
